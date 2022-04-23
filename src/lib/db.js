@@ -1,5 +1,9 @@
 import dotenv from 'dotenv';
-dotenv.config();
+if (process.env['NODE_ENV'] === 'development') {
+  dotenv.config();
+  console.log(process.env['MONGODB_URI']);
+}
+
 import { MongoClient } from 'mongodb';
 const uri = process.env['MONGODB_URI'];
 
